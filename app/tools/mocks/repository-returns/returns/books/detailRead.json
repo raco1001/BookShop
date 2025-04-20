@@ -1,0 +1,39 @@
+[
+  {
+    "bookId": {
+      "type": "Buffer",
+      "data": [
+        235,
+        183,
+        183,
+        205,
+        13,
+        238,
+        17,
+        240,
+        145,
+        14,
+        194,
+        119,
+        186,
+        20,
+        89,
+        123
+      ]
+    },
+    "main_category": "Fiction",
+    "images": "[null]",
+    "price": 20000,
+    "title": "The Great Adventure",
+    "category_id": "4",
+    "format": "Hardcover",
+    "author": "John Doe",
+    "isbn": "978-3-16-148410-0",
+    "pages": 350,
+    "summary": "A thrilling journey of discovery.",
+    "description": "This book explores...",
+    "table_of_contents": null,
+    "publication_date": "2025-01-05T00:00:00.000Z",
+    "isLiked": 1
+  }
+]

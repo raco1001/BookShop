@@ -1,0 +1,54 @@
+[
+  {
+    "userId": {
+      "type": "Buffer",
+      "data": [
+        86,
+        72,
+        163,
+        210,
+        0,
+        218,
+        79,
+        71,
+        150,
+        214,
+        238,
+        89,
+        110,
+        56,
+        13,
+        146
+      ]
+    },
+    "bookId": {
+      "type": "Buffer",
+      "data": [
+        235,
+        183,
+        183,
+        205,
+        13,
+        238,
+        17,
+        240,
+        145,
+        14,
+        194,
+        119,
+        186,
+        20,
+        89,
+        123
+      ]
+    },
+    "main_category": "Fiction",
+    "img_path": "fiction_cover.jpg",
+    "price": 20000,
+    "count": null,
+    "title": "The Great Adventure",
+    "author": "John Doe",
+    "pages": 350,
+    "summary": "A thrilling journey of discovery."
+  }
+]

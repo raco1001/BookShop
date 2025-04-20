@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "parent_id": null,
+    "name": "Fiction",
+    "depth": 2
+  },
+  {
+    "id": 4,
+    "parent_id": 1,
+    "name": "Fantasy",
+    "depth": 1
+  }
+]
