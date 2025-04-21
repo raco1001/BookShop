@@ -7,16 +7,18 @@
 <!-- API-DOCS:START -->
 
 ---
+
 title: Bookshop API v1.0.0
 language_tabs:
-  - javascript: javascript
-language_clients:
-  - javascript: ""
-toc_footers: []
-includes: []
-search: true
-highlight_theme: darkula
-headingLevel: 2
+
+- javascript: javascript
+  language_clients:
+- javascript: ""
+  toc_footers: []
+  includes: []
+  search: true
+  highlight_theme: darkula
+  headingLevel: 2
 
 ---
 
@@ -30,11 +32,11 @@ Bookshop 쇼핑몰에서 사용하는 API 로, 인증, 도서 검색, 주문, �
 
 Base URLs:
 
-* <a href="http://localhost:3000">http://localhost:3000</a>
+- <a href="http://localhost:3000">http://localhost:3000</a>
 
 ## Authentication
 
-- HTTP Authentication, scheme: bearer 
+- HTTP Authentication, scheme: bearer
 
 <h1 id="bookshop-api--">인증</h1>
 
@@ -82,9 +84,9 @@ fetch('http://localhost:3000/auth/login',
 
 <h3 id="사용자-로그인-parameters">Parameters</h3>
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|body|body|[LoginRequest](#schemaloginrequest)|true|none|
+| Name | In   | Type                                | Required | Description |
+| ---- | ---- | ----------------------------------- | -------- | ----------- |
+| body | body | [LoginRequest](#schemaloginrequest) | true     | none        |
 
 > Example responses
 
@@ -103,10 +105,10 @@ fetch('http://localhost:3000/auth/login',
 
 <h3 id="사용자-로그인-responses">Responses</h3>
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|로그인 성공|[LoginResponse](#schemaloginresponse)|
-|401|[Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)|인증 실패|[Error](#schemaerror)|
+| Status | Meaning                                                         | Description | Schema                                |
+| ------ | --------------------------------------------------------------- | ----------- | ------------------------------------- |
+| 200    | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)         | 로그인 성공 | [LoginResponse](#schemaloginresponse) |
+| 401    | [Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1) | 인증 실패   | [Error](#schemaerror)                 |
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
@@ -118,24 +120,22 @@ bearerAuth
 > Code samples
 
 ```javascript
-
 const headers = {
-  'Accept':'application/json',
-  'Authorization':'Bearer {access-token}'
-};
+  Accept: 'application/json',
+  Authorization: 'Bearer {access-token}',
+}
 
-fetch('http://localhost:3000/auth/refresh',
-{
+fetch('http://localhost:3000/auth/refresh', {
   method: 'POST',
 
-  headers: headers
+  headers: headers,
 })
-.then(function(res) {
-    return res.json();
-}).then(function(body) {
-    console.log(body);
-});
-
+  .then(function (res) {
+    return res.json()
+  })
+  .then(function (body) {
+    console.log(body)
+  })
 ```
 
 `POST /auth/refresh`
@@ -155,19 +155,19 @@ fetch('http://localhost:3000/auth/refresh',
 
 <h3 id="토큰-갱신-responses">Responses</h3>
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|토큰 갱신 성공|Inline|
-|401|[Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)|인증 실패|[Error](#schemaerror)|
+| Status | Meaning                                                         | Description    | Schema                |
+| ------ | --------------------------------------------------------------- | -------------- | --------------------- |
+| 200    | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)         | 토큰 갱신 성공 | Inline                |
+| 401    | [Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1) | 인증 실패      | [Error](#schemaerror) |
 
 <h3 id="토큰-갱신-responseschema">Response Schema</h3>
 
 Status Code **200**
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|» status|string|false|none|none|
-|» accessToken|string|false|none|새로운 JWT 액세스 토큰|
+| Name          | Type   | Required | Restrictions | Description            |
+| ------------- | ------ | -------- | ------------ | ---------------------- |
+| » status      | string | false    | none         | none                   |
+| » accessToken | string | false    | none         | 새로운 JWT 액세스 토큰 |
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
@@ -179,24 +179,22 @@ bearerAuth
 > Code samples
 
 ```javascript
-
 const headers = {
-  'Accept':'application/json',
-  'Authorization':'Bearer {access-token}'
-};
+  Accept: 'application/json',
+  Authorization: 'Bearer {access-token}',
+}
 
-fetch('http://localhost:3000/auth/logout',
-{
+fetch('http://localhost:3000/auth/logout', {
   method: 'POST',
 
-  headers: headers
+  headers: headers,
 })
-.then(function(res) {
-    return res.json();
-}).then(function(body) {
-    console.log(body);
-});
-
+  .then(function (res) {
+    return res.json()
+  })
+  .then(function (body) {
+    console.log(body)
+  })
 ```
 
 `POST /auth/logout`
@@ -216,18 +214,18 @@ fetch('http://localhost:3000/auth/logout',
 
 <h3 id="로그아웃-responses">Responses</h3>
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|로그아웃 성공|Inline|
+| Status | Meaning                                                 | Description   | Schema |
+| ------ | ------------------------------------------------------- | ------------- | ------ |
+| 200    | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1) | 로그아웃 성공 | Inline |
 
 <h3 id="로그아웃-responseschema">Response Schema</h3>
 
 Status Code **200**
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|» status|string|false|none|none|
-|» message|string|false|none|none|
+| Name      | Type   | Required | Restrictions | Description |
+| --------- | ------ | -------- | ------------ | ----------- |
+| » status  | string | false    | none         | none        |
+| » message | string | false    | none         | none        |
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
@@ -282,12 +280,12 @@ fetch('http://localhost:3000/users/join',
 
 <h3 id="회원가입-parameters">Parameters</h3>
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|body|body|object|true|none|
-|» email|body|string(email)|true|none|
-|» password|body|string(password)|true|none|
-|» userName|body|string|true|none|
+| Name       | In   | Type             | Required | Description |
+| ---------- | ---- | ---------------- | -------- | ----------- |
+| body       | body | object           | true     | none        |
+| » email    | body | string(email)    | true     | none        |
+| » password | body | string(password) | true     | none        |
+| » userName | body | string           | true     | none        |
 
 > Example responses
 
@@ -302,10 +300,10 @@ fetch('http://localhost:3000/users/join',
 
 <h3 id="회원가입-responses">Responses</h3>
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|회원가입 성공|None|
-|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|잘못된 요청|[Error](#schemaerror)|
+| Status | Meaning                                                          | Description   | Schema                |
+| ------ | ---------------------------------------------------------------- | ------------- | --------------------- |
+| 201    | [Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)     | 회원가입 성공 | None                  |
+| 400    | [Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1) | 잘못된 요청   | [Error](#schemaerror) |
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
@@ -317,24 +315,22 @@ bearerAuth
 > Code samples
 
 ```javascript
-
 const headers = {
-  'Accept':'application/json',
-  'Authorization':'Bearer {access-token}'
-};
+  Accept: 'application/json',
+  Authorization: 'Bearer {access-token}',
+}
 
-fetch('http://localhost:3000/users/{id}',
-{
+fetch('http://localhost:3000/users/{id}', {
   method: 'GET',
 
-  headers: headers
+  headers: headers,
 })
-.then(function(res) {
-    return res.json();
-}).then(function(body) {
-    console.log(body);
-});
-
+  .then(function (res) {
+    return res.json()
+  })
+  .then(function (body) {
+    console.log(body)
+  })
 ```
 
 `GET /users/{id}`
@@ -343,9 +339,9 @@ fetch('http://localhost:3000/users/{id}',
 
 <h3 id="사용자-정보-조회-parameters">Parameters</h3>
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|id|path|string|true|사용자 ID|
+| Name | In   | Type   | Required | Description |
+| ---- | ---- | ------ | -------- | ----------- |
+| id   | path | string | true     | 사용자 ID   |
 
 > Example responses
 
@@ -361,10 +357,10 @@ fetch('http://localhost:3000/users/{id}',
 
 <h3 id="사용자-정보-조회-responses">Responses</h3>
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|사용자 정보 조회 성공|[User](#schemauser)|
-|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|사용자를 찾을 수 없음|[Error](#schemaerror)|
+| Status | Meaning                                                        | Description           | Schema                |
+| ------ | -------------------------------------------------------------- | --------------------- | --------------------- |
+| 200    | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)        | 사용자 정보 조회 성공 | [User](#schemauser)   |
+| 404    | [Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4) | 사용자를 찾을 수 없음 | [Error](#schemaerror) |
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
@@ -376,24 +372,22 @@ bearerAuth
 > Code samples
 
 ```javascript
-
 const headers = {
-  'Accept':'application/json',
-  'Authorization':'Bearer {access-token}'
-};
+  Accept: 'application/json',
+  Authorization: 'Bearer {access-token}',
+}
 
-fetch('http://localhost:3000/users/{id}',
-{
+fetch('http://localhost:3000/users/{id}', {
   method: 'DELETE',
 
-  headers: headers
+  headers: headers,
 })
-.then(function(res) {
-    return res.json();
-}).then(function(body) {
-    console.log(body);
-});
-
+  .then(function (res) {
+    return res.json()
+  })
+  .then(function (body) {
+    console.log(body)
+  })
 ```
 
 `DELETE /users/{id}`
@@ -402,9 +396,9 @@ fetch('http://localhost:3000/users/{id}',
 
 <h3 id="사용자-삭제-parameters">Parameters</h3>
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|id|path|string|true|사용자 ID|
+| Name | In   | Type   | Required | Description |
+| ---- | ---- | ------ | -------- | ----------- |
+| id   | path | string | true     | 사용자 ID   |
 
 > Example responses
 
@@ -419,10 +413,10 @@ fetch('http://localhost:3000/users/{id}',
 
 <h3 id="사용자-삭제-responses">Responses</h3>
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|사용자 삭제 성공|None|
-|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|사용자를 찾을 수 없음|[Error](#schemaerror)|
+| Status | Meaning                                                        | Description           | Schema                |
+| ------ | -------------------------------------------------------------- | --------------------- | --------------------- |
+| 200    | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)        | 사용자 삭제 성공      | None                  |
+| 404    | [Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4) | 사용자를 찾을 수 없음 | [Error](#schemaerror) |
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
@@ -434,24 +428,22 @@ bearerAuth
 > Code samples
 
 ```javascript
-
 const headers = {
-  'Accept':'application/json',
-  'Authorization':'Bearer {access-token}'
-};
+  Accept: 'application/json',
+  Authorization: 'Bearer {access-token}',
+}
 
-fetch('http://localhost:3000/users/reset/{email}',
-{
+fetch('http://localhost:3000/users/reset/{email}', {
   method: 'GET',
 
-  headers: headers
+  headers: headers,
 })
-.then(function(res) {
-    return res.json();
-}).then(function(body) {
-    console.log(body);
-});
-
+  .then(function (res) {
+    return res.json()
+  })
+  .then(function (body) {
+    console.log(body)
+  })
 ```
 
 `GET /users/reset/{email}`
@@ -460,9 +452,9 @@ fetch('http://localhost:3000/users/reset/{email}',
 
 <h3 id="이메일-인증-parameters">Parameters</h3>
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|email|path|string(email)|true|사용자 이메일|
+| Name  | In   | Type          | Required | Description   |
+| ----- | ---- | ------------- | -------- | ------------- |
+| email | path | string(email) | true     | 사용자 이메일 |
 
 > Example responses
 
@@ -477,10 +469,10 @@ fetch('http://localhost:3000/users/reset/{email}',
 
 <h3 id="이메일-인증-responses">Responses</h3>
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|이메일 인증 성공|None|
-|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|사용자를 찾을 수 없음|[Error](#schemaerror)|
+| Status | Meaning                                                        | Description           | Schema                |
+| ------ | -------------------------------------------------------------- | --------------------- | --------------------- |
+| 200    | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)        | 이메일 인증 성공      | None                  |
+| 404    | [Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4) | 사용자를 찾을 수 없음 | [Error](#schemaerror) |
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
@@ -529,11 +521,11 @@ fetch('http://localhost:3000/users/reset/{id}',
 
 <h3 id="비밀번호-재설정-parameters">Parameters</h3>
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|id|path|string|true|사용자 ID|
-|body|body|object|true|none|
-|» newPassword|body|string(password)|true|none|
+| Name          | In   | Type             | Required | Description |
+| ------------- | ---- | ---------------- | -------- | ----------- |
+| id            | path | string           | true     | 사용자 ID   |
+| body          | body | object           | true     | none        |
+| » newPassword | body | string(password) | true     | none        |
 
 > Example responses
 
@@ -548,10 +540,10 @@ fetch('http://localhost:3000/users/reset/{id}',
 
 <h3 id="비밀번호-재설정-responses">Responses</h3>
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|비밀번호 재설정 성공|None|
-|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|사용자를 찾을 수 없음|[Error](#schemaerror)|
+| Status | Meaning                                                        | Description           | Schema                |
+| ------ | -------------------------------------------------------------- | --------------------- | --------------------- |
+| 200    | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)        | 비밀번호 재설정 성공  | None                  |
+| 404    | [Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4) | 사용자를 찾을 수 없음 | [Error](#schemaerror) |
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
@@ -565,24 +557,22 @@ bearerAuth
 > Code samples
 
 ```javascript
-
 const headers = {
-  'Accept':'application/json',
-  'Authorization':'Bearer {access-token}'
-};
+  Accept: 'application/json',
+  Authorization: 'Bearer {access-token}',
+}
 
-fetch('http://localhost:3000/books/lists',
-{
+fetch('http://localhost:3000/books/lists', {
   method: 'GET',
 
-  headers: headers
+  headers: headers,
 })
-.then(function(res) {
-    return res.json();
-}).then(function(body) {
-    console.log(body);
-});
-
+  .then(function (res) {
+    return res.json()
+  })
+  .then(function (body) {
+    console.log(body)
+  })
 ```
 
 `GET /books/lists`
@@ -591,10 +581,10 @@ fetch('http://localhost:3000/books/lists',
 
 <h3 id="도서-목록-조회-parameters">Parameters</h3>
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|page|query|integer|false|페이지 번호|
-|limit|query|integer|false|페이지당 항목 수|
+| Name  | In    | Type    | Required | Description      |
+| ----- | ----- | ------- | -------- | ---------------- |
+| page  | query | integer | false    | 페이지 번호      |
+| limit | query | integer | false    | 페이지당 항목 수 |
 
 > Example responses
 
@@ -627,32 +617,32 @@ fetch('http://localhost:3000/books/lists',
 
 <h3 id="도서-목록-조회-responses">Responses</h3>
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|도서 목록 조회 성공|Inline|
+| Status | Meaning                                                 | Description         | Schema |
+| ------ | ------------------------------------------------------- | ------------------- | ------ |
+| 200    | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1) | 도서 목록 조회 성공 | Inline |
 
 <h3 id="도서-목록-조회-responseschema">Response Schema</h3>
 
 Status Code **200**
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|» books|[[Book](#schemabook)]|false|none|none|
-|»» id|string|false|none|none|
-|»» title|string|false|none|none|
-|»» author|string|false|none|none|
-|»» description|string|false|none|none|
-|»» price|number(float)|false|none|none|
-|»» coverImage|string|false|none|none|
-|»» isbn|string|false|none|none|
-|»» publisher|string|false|none|none|
-|»» publishedDate|string(date)|false|none|none|
-|»» rating|number(float)|false|none|none|
-|» pagination|object|false|none|none|
-|»» total|integer|false|none|none|
-|»» page|integer|false|none|none|
-|»» limit|integer|false|none|none|
-|»» pages|integer|false|none|none|
+| Name             | Type                  | Required | Restrictions | Description |
+| ---------------- | --------------------- | -------- | ------------ | ----------- |
+| » books          | [[Book](#schemabook)] | false    | none         | none        |
+| »» id            | string                | false    | none         | none        |
+| »» title         | string                | false    | none         | none        |
+| »» author        | string                | false    | none         | none        |
+| »» description   | string                | false    | none         | none        |
+| »» price         | number(float)         | false    | none         | none        |
+| »» coverImage    | string                | false    | none         | none        |
+| »» isbn          | string                | false    | none         | none        |
+| »» publisher     | string                | false    | none         | none        |
+| »» publishedDate | string(date)          | false    | none         | none        |
+| »» rating        | number(float)         | false    | none         | none        |
+| » pagination     | object                | false    | none         | none        |
+| »» total         | integer               | false    | none         | none        |
+| »» page          | integer               | false    | none         | none        |
+| »» limit         | integer               | false    | none         | none        |
+| »» pages         | integer               | false    | none         | none        |
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
@@ -664,24 +654,22 @@ bearerAuth
 > Code samples
 
 ```javascript
-
 const headers = {
-  'Accept':'application/json',
-  'Authorization':'Bearer {access-token}'
-};
+  Accept: 'application/json',
+  Authorization: 'Bearer {access-token}',
+}
 
-fetch('http://localhost:3000/books/details/{id}',
-{
+fetch('http://localhost:3000/books/details/{id}', {
   method: 'GET',
 
-  headers: headers
+  headers: headers,
 })
-.then(function(res) {
-    return res.json();
-}).then(function(body) {
-    console.log(body);
-});
-
+  .then(function (res) {
+    return res.json()
+  })
+  .then(function (body) {
+    console.log(body)
+  })
 ```
 
 `GET /books/details/{id}`
@@ -690,9 +678,9 @@ fetch('http://localhost:3000/books/details/{id}',
 
 <h3 id="도서-상세-정보-조회-parameters">Parameters</h3>
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|id|path|string|true|도서 ID|
+| Name | In   | Type   | Required | Description |
+| ---- | ---- | ------ | -------- | ----------- |
+| id   | path | string | true     | 도서 ID     |
 
 > Example responses
 
@@ -715,10 +703,10 @@ fetch('http://localhost:3000/books/details/{id}',
 
 <h3 id="도서-상세-정보-조회-responses">Responses</h3>
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|도서 상세 정보 조회 성공|[Book](#schemabook)|
-|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|도서를 찾을 수 없음|[Error](#schemaerror)|
+| Status | Meaning                                                        | Description              | Schema                |
+| ------ | -------------------------------------------------------------- | ------------------------ | --------------------- |
+| 200    | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)        | 도서 상세 정보 조회 성공 | [Book](#schemabook)   |
+| 404    | [Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4) | 도서를 찾을 수 없음      | [Error](#schemaerror) |
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
@@ -732,24 +720,22 @@ bearerAuth
 > Code samples
 
 ```javascript
-
 const headers = {
-  'Accept':'application/json',
-  'Authorization':'Bearer {access-token}'
-};
+  Accept: 'application/json',
+  Authorization: 'Bearer {access-token}',
+}
 
-fetch('http://localhost:3000/carts/{userId}',
-{
+fetch('http://localhost:3000/carts/{userId}', {
   method: 'GET',
 
-  headers: headers
+  headers: headers,
 })
-.then(function(res) {
-    return res.json();
-}).then(function(body) {
-    console.log(body);
-});
-
+  .then(function (res) {
+    return res.json()
+  })
+  .then(function (body) {
+    console.log(body)
+  })
 ```
 
 `GET /carts/{userId}`
@@ -758,9 +744,9 @@ fetch('http://localhost:3000/carts/{userId}',
 
 <h3 id="장바구니-조회-parameters">Parameters</h3>
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|userId|path|string|true|사용자 ID|
+| Name   | In   | Type   | Required | Description |
+| ------ | ---- | ------ | -------- | ----------- |
+| userId | path | string | true     | 사용자 ID   |
 
 > Example responses
 
@@ -783,23 +769,23 @@ fetch('http://localhost:3000/carts/{userId}',
 
 <h3 id="장바구니-조회-responses">Responses</h3>
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|장바구니 조회 성공|Inline|
+| Status | Meaning                                                 | Description        | Schema |
+| ------ | ------------------------------------------------------- | ------------------ | ------ |
+| 200    | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1) | 장바구니 조회 성공 | Inline |
 
 <h3 id="장바구니-조회-responseschema">Response Schema</h3>
 
 Status Code **200**
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|» items|[[CartItem](#schemacartitem)]|false|none|none|
-|»» bookId|string|false|none|none|
-|»» title|string|false|none|none|
-|»» price|number(float)|false|none|none|
-|»» quantity|integer|false|none|none|
-|»» subtotal|number(float)|false|none|none|
-|» total|number(float)|false|none|none|
+| Name        | Type                          | Required | Restrictions | Description |
+| ----------- | ----------------------------- | -------- | ------------ | ----------- |
+| » items     | [[CartItem](#schemacartitem)] | false    | none         | none        |
+| »» bookId   | string                        | false    | none         | none        |
+| »» title    | string                        | false    | none         | none        |
+| »» price    | number(float)                 | false    | none         | none        |
+| »» quantity | integer                       | false    | none         | none        |
+| »» subtotal | number(float)                 | false    | none         | none        |
+| » total     | number(float)                 | false    | none         | none        |
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
@@ -850,12 +836,12 @@ fetch('http://localhost:3000/carts/{userId}',
 
 <h3 id="장바구니에-추가-parameters">Parameters</h3>
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|userId|path|string|true|사용자 ID|
-|body|body|object|true|none|
-|» bookId|body|string|true|none|
-|» quantity|body|integer|true|none|
+| Name       | In   | Type    | Required | Description |
+| ---------- | ---- | ------- | -------- | ----------- |
+| userId     | path | string  | true     | 사용자 ID   |
+| body       | body | object  | true     | none        |
+| » bookId   | body | string  | true     | none        |
+| » quantity | body | integer | true     | none        |
 
 > Example responses
 
@@ -870,10 +856,10 @@ fetch('http://localhost:3000/carts/{userId}',
 
 <h3 id="장바구니에-추가-responses">Responses</h3>
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|장바구니 추가 성공|None|
-|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|도서를 찾을 수 없음|[Error](#schemaerror)|
+| Status | Meaning                                                        | Description         | Schema                |
+| ------ | -------------------------------------------------------------- | ------------------- | --------------------- |
+| 201    | [Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)   | 장바구니 추가 성공  | None                  |
+| 404    | [Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4) | 도서를 찾을 수 없음 | [Error](#schemaerror) |
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
@@ -924,12 +910,12 @@ fetch('http://localhost:3000/carts/{userId}',
 
 <h3 id="장바구니-항목-수정-parameters">Parameters</h3>
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|userId|path|string|true|사용자 ID|
-|body|body|object|true|none|
-|» bookId|body|string|true|none|
-|» quantity|body|integer|true|none|
+| Name       | In   | Type    | Required | Description |
+| ---------- | ---- | ------- | -------- | ----------- |
+| userId     | path | string  | true     | 사용자 ID   |
+| body       | body | object  | true     | none        |
+| » bookId   | body | string  | true     | none        |
+| » quantity | body | integer | true     | none        |
 
 > Example responses
 
@@ -944,10 +930,10 @@ fetch('http://localhost:3000/carts/{userId}',
 
 <h3 id="장바구니-항목-수정-responses">Responses</h3>
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|장바구니 수정 성공|None|
-|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|장바구니 항목을 찾을 수 없음|[Error](#schemaerror)|
+| Status | Meaning                                                        | Description                  | Schema                |
+| ------ | -------------------------------------------------------------- | ---------------------------- | --------------------- |
+| 200    | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)        | 장바구니 수정 성공           | None                  |
+| 404    | [Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4) | 장바구니 항목을 찾을 수 없음 | [Error](#schemaerror) |
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
@@ -996,11 +982,11 @@ fetch('http://localhost:3000/carts/{userId}',
 
 <h3 id="장바구니-항목-삭제-parameters">Parameters</h3>
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|userId|path|string|true|사용자 ID|
-|body|body|object|true|none|
-|» bookId|body|string|true|none|
+| Name     | In   | Type   | Required | Description |
+| -------- | ---- | ------ | -------- | ----------- |
+| userId   | path | string | true     | 사용자 ID   |
+| body     | body | object | true     | none        |
+| » bookId | body | string | true     | none        |
 
 > Example responses
 
@@ -1015,10 +1001,10 @@ fetch('http://localhost:3000/carts/{userId}',
 
 <h3 id="장바구니-항목-삭제-responses">Responses</h3>
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|장바구니 삭제 성공|None|
-|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|장바구니 항목을 찾을 수 없음|[Error](#schemaerror)|
+| Status | Meaning                                                        | Description                  | Schema                |
+| ------ | -------------------------------------------------------------- | ---------------------------- | --------------------- |
+| 200    | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)        | 장바구니 삭제 성공           | None                  |
+| 404    | [Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4) | 장바구니 항목을 찾을 수 없음 | [Error](#schemaerror) |
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
@@ -1071,21 +1057,21 @@ fetch('http://localhost:3000/orders',
 
 <h3 id="주문-상태-업데이트-parameters">Parameters</h3>
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|body|body|object|true|none|
-|» orderId|body|string|true|none|
-|» status|body|string|true|none|
+| Name      | In   | Type   | Required | Description |
+| --------- | ---- | ------ | -------- | ----------- |
+| body      | body | object | true     | none        |
+| » orderId | body | string | true     | none        |
+| » status  | body | string | true     | none        |
 
 #### Enumerated Values
 
-|Parameter|Value|
-|---|---|
-|» status|pending|
-|» status|processing|
-|» status|shipped|
-|» status|delivered|
-|» status|cancelled|
+| Parameter | Value      |
+| --------- | ---------- |
+| » status  | pending    |
+| » status  | processing |
+| » status  | shipped    |
+| » status  | delivered  |
+| » status  | cancelled  |
 
 > Example responses
 
@@ -1100,10 +1086,10 @@ fetch('http://localhost:3000/orders',
 
 <h3 id="주문-상태-업데이트-responses">Responses</h3>
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|주문 상태 업데이트 성공|None|
-|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|주문을 찾을 수 없음|[Error](#schemaerror)|
+| Status | Meaning                                                        | Description             | Schema                |
+| ------ | -------------------------------------------------------------- | ----------------------- | --------------------- |
+| 200    | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)        | 주문 상태 업데이트 성공 | None                  |
+| 404    | [Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4) | 주문을 찾을 수 없음     | [Error](#schemaerror) |
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
@@ -1115,24 +1101,22 @@ bearerAuth
 > Code samples
 
 ```javascript
-
 const headers = {
-  'Accept':'application/json',
-  'Authorization':'Bearer {access-token}'
-};
+  Accept: 'application/json',
+  Authorization: 'Bearer {access-token}',
+}
 
-fetch('http://localhost:3000/orders/order-items',
-{
+fetch('http://localhost:3000/orders/order-items', {
   method: 'GET',
 
-  headers: headers
+  headers: headers,
 })
-.then(function(res) {
-    return res.json();
-}).then(function(body) {
-    console.log(body);
-});
-
+  .then(function (res) {
+    return res.json()
+  })
+  .then(function (body) {
+    console.log(body)
+  })
 ```
 
 `GET /orders/order-items`
@@ -1174,43 +1158,43 @@ fetch('http://localhost:3000/orders/order-items',
 
 <h3 id="주문-항목-조회-responses">Responses</h3>
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|주문 항목 조회 성공|Inline|
+| Status | Meaning                                                 | Description         | Schema |
+| ------ | ------------------------------------------------------- | ------------------- | ------ |
+| 200    | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1) | 주문 항목 조회 성공 | Inline |
 
 <h3 id="주문-항목-조회-responseschema">Response Schema</h3>
 
 Status Code **200**
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|» orders|[[Order](#schemaorder)]|false|none|none|
-|»» orderId|string|false|none|none|
-|»» date|string(date-time)|false|none|none|
-|»» status|string|false|none|none|
-|»» items|[[CartItem](#schemacartitem)]|false|none|none|
-|»»» bookId|string|false|none|none|
-|»»» title|string|false|none|none|
-|»»» price|number(float)|false|none|none|
-|»»» quantity|integer|false|none|none|
-|»»» subtotal|number(float)|false|none|none|
-|»» total|number(float)|false|none|none|
-|»» shippingAddress|object|false|none|none|
-|»»» street|string|false|none|none|
-|»»» city|string|false|none|none|
-|»»» state|string|false|none|none|
-|»»» zipCode|string|false|none|none|
-|»»» country|string|false|none|none|
+| Name               | Type                          | Required | Restrictions | Description |
+| ------------------ | ----------------------------- | -------- | ------------ | ----------- |
+| » orders           | [[Order](#schemaorder)]       | false    | none         | none        |
+| »» orderId         | string                        | false    | none         | none        |
+| »» date            | string(date-time)             | false    | none         | none        |
+| »» status          | string                        | false    | none         | none        |
+| »» items           | [[CartItem](#schemacartitem)] | false    | none         | none        |
+| »»» bookId         | string                        | false    | none         | none        |
+| »»» title          | string                        | false    | none         | none        |
+| »»» price          | number(float)                 | false    | none         | none        |
+| »»» quantity       | integer                       | false    | none         | none        |
+| »»» subtotal       | number(float)                 | false    | none         | none        |
+| »» total           | number(float)                 | false    | none         | none        |
+| »» shippingAddress | object                        | false    | none         | none        |
+| »»» street         | string                        | false    | none         | none        |
+| »»» city           | string                        | false    | none         | none        |
+| »»» state          | string                        | false    | none         | none        |
+| »»» zipCode        | string                        | false    | none         | none        |
+| »»» country        | string                        | false    | none         | none        |
 
 #### Enumerated Values
 
-|Property|Value|
-|---|---|
-|status|pending|
-|status|processing|
-|status|shipped|
-|status|delivered|
-|status|cancelled|
+| Property | Value      |
+| -------- | ---------- |
+| status   | pending    |
+| status   | processing |
+| status   | shipped    |
+| status   | delivered  |
+| status   | cancelled  |
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
@@ -1261,11 +1245,11 @@ fetch('http://localhost:3000/likes/{userId}',
 
 <h3 id="좋아요-추가-parameters">Parameters</h3>
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|userId|path|string|true|사용자 ID|
-|body|body|object|true|none|
-|» bookId|body|string|true|none|
+| Name     | In   | Type   | Required | Description |
+| -------- | ---- | ------ | -------- | ----------- |
+| userId   | path | string | true     | 사용자 ID   |
+| body     | body | object | true     | none        |
+| » bookId | body | string | true     | none        |
 
 > Example responses
 
@@ -1280,10 +1264,10 @@ fetch('http://localhost:3000/likes/{userId}',
 
 <h3 id="좋아요-추가-responses">Responses</h3>
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|좋아요 추가 성공|None|
-|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|도서를 찾을 수 없음|[Error](#schemaerror)|
+| Status | Meaning                                                        | Description         | Schema                |
+| ------ | -------------------------------------------------------------- | ------------------- | --------------------- |
+| 201    | [Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)   | 좋아요 추가 성공    | None                  |
+| 404    | [Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4) | 도서를 찾을 수 없음 | [Error](#schemaerror) |
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
@@ -1332,11 +1316,11 @@ fetch('http://localhost:3000/likes/{userId}',
 
 <h3 id="좋아요-삭제-parameters">Parameters</h3>
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|userId|path|string|true|사용자 ID|
-|body|body|object|true|none|
-|» bookId|body|string|true|none|
+| Name     | In   | Type   | Required | Description |
+| -------- | ---- | ------ | -------- | ----------- |
+| userId   | path | string | true     | 사용자 ID   |
+| body     | body | object | true     | none        |
+| » bookId | body | string | true     | none        |
 
 > Example responses
 
@@ -1351,10 +1335,10 @@ fetch('http://localhost:3000/likes/{userId}',
 
 <h3 id="좋아요-삭제-responses">Responses</h3>
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|좋아요 삭제 성공|None|
-|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|좋아요를 찾을 수 없음|[Error](#schemaerror)|
+| Status | Meaning                                                        | Description           | Schema                |
+| ------ | -------------------------------------------------------------- | --------------------- | --------------------- |
+| 200    | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)        | 좋아요 삭제 성공      | None                  |
+| 404    | [Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4) | 좋아요를 찾을 수 없음 | [Error](#schemaerror) |
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
@@ -1409,12 +1393,12 @@ fetch('http://localhost:3000/payments',
 
 <h3 id="결제-생성-parameters">Parameters</h3>
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|body|body|object|true|none|
-|» orderId|body|string|true|none|
-|» amount|body|number(float)|true|none|
-|» paymentMethod|body|string|true|none|
+| Name            | In   | Type          | Required | Description |
+| --------------- | ---- | ------------- | -------- | ----------- |
+| body            | body | object        | true     | none        |
+| » orderId       | body | string        | true     | none        |
+| » amount        | body | number(float) | true     | none        |
+| » paymentMethod | body | string        | true     | none        |
 
 > Example responses
 
@@ -1429,10 +1413,10 @@ fetch('http://localhost:3000/payments',
 
 <h3 id="결제-생성-responses">Responses</h3>
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|결제 생성 성공|None|
-|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|주문을 찾을 수 없음|[Error](#schemaerror)|
+| Status | Meaning                                                        | Description         | Schema                |
+| ------ | -------------------------------------------------------------- | ------------------- | --------------------- |
+| 201    | [Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)   | 결제 생성 성공      | None                  |
+| 404    | [Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4) | 주문을 찾을 수 없음 | [Error](#schemaerror) |
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
@@ -1482,17 +1466,17 @@ fetch('http://localhost:3000/payments/providers',
 
 <h3 id="결제-제공자-추가-parameters">Parameters</h3>
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|body|body|object|true|none|
-|» name|body|string|true|none|
-|» description|body|string|true|none|
+| Name          | In   | Type   | Required | Description |
+| ------------- | ---- | ------ | -------- | ----------- |
+| body          | body | object | true     | none        |
+| » name        | body | string | true     | none        |
+| » description | body | string | true     | none        |
 
 <h3 id="결제-제공자-추가-responses">Responses</h3>
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|결제 제공자 추가 성공|None|
+| Status | Meaning                                                      | Description           | Schema |
+| ------ | ------------------------------------------------------------ | --------------------- | ------ |
+| 201    | [Created](https://tools.ietf.org/html/rfc7231#section-6.3.2) | 결제 제공자 추가 성공 | None   |
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
@@ -1513,15 +1497,14 @@ bearerAuth
   "status": "error",
   "message": "Error description"
 }
-
 ```
 
 ### Properties
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|status|string|false|none|none|
-|message|string|false|none|none|
+| Name    | Type   | Required | Restrictions | Description |
+| ------- | ------ | -------- | ------------ | ----------- |
+| status  | string | false    | none         | none        |
+| message | string | false    | none         | none        |
 
 <h2 id="tocS_LoginRequest">LoginRequest</h2>
 <!-- backwards compatibility -->
@@ -1535,15 +1518,14 @@ bearerAuth
   "email": "user@example.com",
   "password": "password123"
 }
-
 ```
 
 ### Properties
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|email|string(email)|true|none|none|
-|password|string(password)|true|none|none|
+| Name     | Type             | Required | Restrictions | Description |
+| -------- | ---------------- | -------- | ------------ | ----------- |
+| email    | string(email)    | true     | none         | none        |
+| password | string(password) | true     | none         | none        |
 
 <h2 id="tocS_LoginResponse">LoginResponse</h2>
 <!-- backwards compatibility -->
@@ -1561,18 +1543,17 @@ bearerAuth
     "userName": "John Doe"
   }
 }
-
 ```
 
 ### Properties
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|status|string|false|none|none|
-|accessToken|string|false|none|none|
-|user|object|false|none|none|
-|» userId|string|false|none|none|
-|» userName|string|false|none|none|
+| Name        | Type   | Required | Restrictions | Description |
+| ----------- | ------ | -------- | ------------ | ----------- |
+| status      | string | false    | none         | none        |
+| accessToken | string | false    | none         | none        |
+| user        | object | false    | none         | none        |
+| » userId    | string | false    | none         | none        |
+| » userName  | string | false    | none         | none        |
 
 <h2 id="tocS_User">User</h2>
 <!-- backwards compatibility -->
@@ -1587,16 +1568,15 @@ bearerAuth
   "userName": "John Doe",
   "email": "user@example.com"
 }
-
 ```
 
 ### Properties
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|userId|string|false|none|none|
-|userName|string|false|none|none|
-|email|string(email)|false|none|none|
+| Name     | Type          | Required | Restrictions | Description |
+| -------- | ------------- | -------- | ------------ | ----------- |
+| userId   | string        | false    | none         | none        |
+| userName | string        | false    | none         | none        |
+| email    | string(email) | false    | none         | none        |
 
 <h2 id="tocS_Book">Book</h2>
 <!-- backwards compatibility -->
@@ -1618,23 +1598,22 @@ bearerAuth
   "publishedDate": "2004-09-30",
   "rating": 4.5
 }
-
 ```
 
 ### Properties
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|id|string|false|none|none|
-|title|string|false|none|none|
-|author|string|false|none|none|
-|description|string|false|none|none|
-|price|number(float)|false|none|none|
-|coverImage|string|false|none|none|
-|isbn|string|false|none|none|
-|publisher|string|false|none|none|
-|publishedDate|string(date)|false|none|none|
-|rating|number(float)|false|none|none|
+| Name          | Type          | Required | Restrictions | Description |
+| ------------- | ------------- | -------- | ------------ | ----------- |
+| id            | string        | false    | none         | none        |
+| title         | string        | false    | none         | none        |
+| author        | string        | false    | none         | none        |
+| description   | string        | false    | none         | none        |
+| price         | number(float) | false    | none         | none        |
+| coverImage    | string        | false    | none         | none        |
+| isbn          | string        | false    | none         | none        |
+| publisher     | string        | false    | none         | none        |
+| publishedDate | string(date)  | false    | none         | none        |
+| rating        | number(float) | false    | none         | none        |
 
 <h2 id="tocS_CartItem">CartItem</h2>
 <!-- backwards compatibility -->
@@ -1651,18 +1630,17 @@ bearerAuth
   "quantity": 2,
   "subtotal": 31.98
 }
-
 ```
 
 ### Properties
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|bookId|string|false|none|none|
-|title|string|false|none|none|
-|price|number(float)|false|none|none|
-|quantity|integer|false|none|none|
-|subtotal|number(float)|false|none|none|
+| Name     | Type          | Required | Restrictions | Description |
+| -------- | ------------- | -------- | ------------ | ----------- |
+| bookId   | string        | false    | none         | none        |
+| title    | string        | false    | none         | none        |
+| price    | number(float) | false    | none         | none        |
+| quantity | integer       | false    | none         | none        |
+| subtotal | number(float) | false    | none         | none        |
 
 <h2 id="tocS_Order">Order</h2>
 <!-- backwards compatibility -->
@@ -1694,34 +1672,33 @@ bearerAuth
     "country": "USA"
   }
 }
-
 ```
 
 ### Properties
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|orderId|string|false|none|none|
-|date|string(date-time)|false|none|none|
-|status|string|false|none|none|
-|items|[[CartItem](#schemacartitem)]|false|none|none|
-|total|number(float)|false|none|none|
-|shippingAddress|object|false|none|none|
-|» street|string|false|none|none|
-|» city|string|false|none|none|
-|» state|string|false|none|none|
-|» zipCode|string|false|none|none|
-|» country|string|false|none|none|
+| Name            | Type                          | Required | Restrictions | Description |
+| --------------- | ----------------------------- | -------- | ------------ | ----------- |
+| orderId         | string                        | false    | none         | none        |
+| date            | string(date-time)             | false    | none         | none        |
+| status          | string                        | false    | none         | none        |
+| items           | [[CartItem](#schemacartitem)] | false    | none         | none        |
+| total           | number(float)                 | false    | none         | none        |
+| shippingAddress | object                        | false    | none         | none        |
+| » street        | string                        | false    | none         | none        |
+| » city          | string                        | false    | none         | none        |
+| » state         | string                        | false    | none         | none        |
+| » zipCode       | string                        | false    | none         | none        |
+| » country       | string                        | false    | none         | none        |
 
 #### Enumerated Values
 
-|Property|Value|
-|---|---|
-|status|pending|
-|status|processing|
-|status|shipped|
-|status|delivered|
-|status|cancelled|
+| Property | Value      |
+| -------- | ---------- |
+| status   | pending    |
+| status   | processing |
+| status   | shipped    |
+| status   | delivered  |
+| status   | cancelled  |
 
 <!-- API-DOCS:END -->
 

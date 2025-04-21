@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const { addLike, removeLike } = require('./like-controller')
-const { validateAccessToken } = require('./../auth/auth-middleware')
+const { validateAccessToken } = require('../auth/auth-middleware')
 
 router
   .route('/')

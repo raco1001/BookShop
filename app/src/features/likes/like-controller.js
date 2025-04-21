@@ -1,8 +1,5 @@
 const { getLike, createLike, deleteLikeIfExists } = require('./like-service')
-const {
-  uuidToBinary,
-  binaryToUUID,
-} = require('./../../shared/utils/convertIds')
+const { uuidToBinary, binaryToUUID } = require('../../shared/utils/convertIds')
 const addLike = async (req, res, next) => {
   try {
     const userId = req.userId

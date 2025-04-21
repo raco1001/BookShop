@@ -1,8 +1,5 @@
 const { findLikes, insertLike, deleteLike } = require('./like-repository')
-const {
-  uuidToBinary,
-  binaryToUUID,
-} = require('./../../shared/utils/convertIds')
+const { uuidToBinary, binaryToUUID } = require('../../shared/utils/convertIds')
 getLike = async (userId, productId) => {
   const userBid = uuidToBinary(userId)
   const productBid = uuidToBinary(productId)
